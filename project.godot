@@ -13,8 +13,8 @@ config_version=5
 config/name="chill-jam"
 run/main_scene="uid://drgxne5uxibup"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="uid://vfftenlimhjw"
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/show_image=false
 config/icon="uid://vfftenlimhjw"
 
 [autoload]

@@ -18,7 +18,7 @@ position = Vector2(103, 31)
 z_index = -12
 offset_right = 224.0
 offset_bottom = 256.0
-color = Color(0, 0, 0, 1)
+color = Color(0.41827944, 0.41827944, 0.41827944, 1)
 
 [node name="SpaceParticles" type="CPUParticles2D" parent="PanelContainer" unique_id=2084546941]
 amount = 20
