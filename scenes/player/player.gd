@@ -3,7 +3,8 @@ class_name Player extends AnimatedSprite2D
 var speed: float = 3.0
 
 @onready var size = sprite_frames.get_frame_texture("default", 0).get_size()
-@onready var bullet = preload("res://bullet.tscn")
+@onready var bullet = preload("res://scenes/player/bullet.tscn")
+@onready var shootSound = preload("res://assets/audio/sounds/playerShoot.wav");
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,3 +32,4 @@ func shoot():
 		var b = bullet.instantiate()
 		get_tree().root.add_child(b)
 		b.global_position = global_position
+		Global.playSound(shootSound);

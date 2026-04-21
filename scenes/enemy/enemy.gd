@@ -1,7 +1,7 @@
 class_name Enemy extends AnimatedSprite2D
 
 var time: float
-@onready var particle = preload("res://explosion_particle.tscn")
+@onready var particle = preload("res://scenes/enemy/explosion_particle.tscn")
 
 
 

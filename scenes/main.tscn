@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://drgxne5uxibup"]
 
-[ext_resource type="Script" uid="uid://dtlc7ygt71112" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://xcdi84j6tn3x" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dydysnksxg82j" path="res://enemy.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://space_particles.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dtlc7ygt71112" path="res://scenes/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://xcdi84j6tn3x" path="res://scenes/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dydysnksxg82j" path="res://scenes/enemy/enemy.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://scenes/space_particles.gd" id="4_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=939799480]
 script = ExtResource("1_0xm2m")

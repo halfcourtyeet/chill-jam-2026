@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vfftenlimhjw"
-path="res://.godot/imported/placeholder-galaga.png-cfbff16d015652364cba4e1f48e8eb4b.ctex"
+uid="uid://cto811j2sp8ca"
+path="res://.godot/imported/placeholder-enemy.png-9c60c52e5d99651676362be59251a97f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/placeholder-galaga.png"
-dest_files=["res://.godot/imported/placeholder-galaga.png-cfbff16d015652364cba4e1f48e8eb4b.ctex"]
+source_file="res://assets/sprites/placeholder-enemy.png"
+dest_files=["res://.godot/imported/placeholder-enemy.png-9c60c52e5d99651676362be59251a97f.ctex"]
 
 [params]
 

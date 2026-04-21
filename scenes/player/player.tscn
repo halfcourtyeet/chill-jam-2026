@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xcdi84j6tn3x"]
 
-[ext_resource type="Texture2D" uid="uid://vfftenlimhjw" path="res://sprites/placeholder-galaga.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://p4knwtnwr8a2" path="res://player.gd" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://vfftenlimhjw" path="res://assets/sprites/placeholder-galaga.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://p4knwtnwr8a2" path="res://scenes/player/player.gd" id="2_onrkg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
 animations = [{
