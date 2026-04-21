@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://xcdi84j6tn3x"]
+
+[ext_resource type="Texture2D" uid="uid://vfftenlimhjw" path="res://sprites/placeholder-galaga.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://p4knwtnwr8a2" path="res://player.gd" id="2_onrkg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4flbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(16, 16)
+
+[node name="Player" type="AnimatedSprite2D" unique_id=84384261]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sh265")
+script = ExtResource("2_onrkg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=242839332]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=179782266]
+shape = SubResource("RectangleShape2D_onrkg")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b1kiqetwlsydr"]
+
+[node name="ExplosionParticle" type="CPUParticles2D" unique_id=964596513]
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+fract_delta = false
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 15.0
+initial_velocity_max = 60.0
