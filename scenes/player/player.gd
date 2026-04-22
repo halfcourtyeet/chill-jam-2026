@@ -6,6 +6,8 @@ var speed: float = 3.0
 @onready var bullet = preload("res://scenes/player/bullet.tscn")
 @onready var shootSound = preload("res://assets/audio/sounds/playerShoot.wav");
 
+@onready var player_tiles: TileMapLayer = $PlayerTiles
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 func move():
 	var direction = Input.get_vector("left", "right", "up", "down")
-	position += speed * direction
+	position += speed * direction 
 
 	position.x = clampf(position.x, 0 + (size.x / 2), get_viewport_rect().size.x - (size.x / 2))
 	position.y = clampf(position.y, 0 + (size.y / 2), get_viewport_rect().size.y - (size.y / 2))

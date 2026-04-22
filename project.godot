@@ -87,6 +87,10 @@ enter={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="WorldBounds"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
