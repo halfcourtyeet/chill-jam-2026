@@ -4,27 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xcdi84j6tn3x" path="res://scenes/player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dydysnksxg82j" path="res://scenes/enemy/enemy.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://scenes/space_particles.gd" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://dyk0udgo3rd0f" path="res://assets/sprites/placeholder-tiles.png" id="5_tbgi4"]
-[ext_resource type="Script" uid="uid://210qedrdktw6" path="res://scenes/test_sprite.gd" id="6_tefeu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
-atlas = ExtResource("5_tbgi4")
-region = Rect2(0, 0, 8, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
-size = Vector2(8, 8)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tefeu"]
-normal = Vector2(1, 0)
-distance = -68.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o6xl0"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tipki"]
-normal = Vector2(0, 1)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_85g3d"]
-normal = Vector2(-1, 0)
+[ext_resource type="PackedScene" uid="uid://bwpcvbb2540ye" path="res://scenes/tile/falling_tile.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=939799480]
 script = ExtResource("1_0xm2m")
@@ -52,40 +32,6 @@ initial_velocity_min = 50.0
 initial_velocity_max = 100.0
 script = ExtResource("4_1bvp3")
 
-[node name="TestSprite" type="Sprite2D" parent="." unique_id=150265987]
-texture_filter = 1
+[node name="FallingTile" parent="." unique_id=1633204698 instance=ExtResource("5_tbgi4")]
 position = Vector2(106, 102)
-texture = SubResource("AtlasTexture_tbgi4")
-script = ExtResource("6_tefeu")
-
-[node name="Area2D" type="Area2D" parent="TestSprite" unique_id=280255845]
-collision_layer = 0
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestSprite/Area2D" unique_id=956169990]
-shape = SubResource("RectangleShape2D_tefeu")
-
-[node name="FourWalls" type="Node2D" parent="." unique_id=2002840328]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="FourWalls" unique_id=894696783]
-collision_layer = 0
-collision_mask = 2
-
-[node name="RightWall" type="CollisionShape2D" parent="FourWalls/StaticBody2D" unique_id=149221913]
-position = Vector2(67, 128)
-shape = SubResource("WorldBoundaryShape2D_tefeu")
-
-[node name="UpWall" type="CollisionShape2D" parent="FourWalls/StaticBody2D" unique_id=895310587]
-position = Vector2(112, 256)
-shape = SubResource("WorldBoundaryShape2D_o6xl0")
-
-[node name="DownWall" type="CollisionShape2D" parent="FourWalls/StaticBody2D" unique_id=511492628]
-position = Vector2(112, 0)
-shape = SubResource("WorldBoundaryShape2D_tipki")
-
-[node name="LeftWall" type="CollisionShape2D" parent="FourWalls/StaticBody2D" unique_id=1522477016]
-position = Vector2(224, 128)
-shape = SubResource("WorldBoundaryShape2D_85g3d")
-
-[connection signal="area_entered" from="TestSprite/Area2D" to="TestSprite" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="TestSprite/Area2D" to="TestSprite" method="_on_area_2d_body_entered"]
+texture = null

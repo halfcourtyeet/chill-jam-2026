@@ -4,3 +4,5 @@
 .vscode/
 shmup-idea.png
 shmup-idea.png.import
+
+*.tmp

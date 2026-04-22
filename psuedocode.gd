@@ -1,8 +1,4 @@
-# enemy tile object falls from the sky. 
-# When unit collides with the area defined by the player and all the currently connected tiles (make a dynamic collision mesh):
-# Calculate the closest available tile based on the collision point, scaled with player's global position.
-# (This is also how we will calculate when that particular tile takes damage.)
-# Delete the enemy tile object and add it to the player tile array.
+
 
 # Every time a unit dies:
 # For the four special tiles that are overlap the ship sprite (0,0, -1,0, -1,-1, 0,-1):

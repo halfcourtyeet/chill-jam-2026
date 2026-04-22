@@ -29,11 +29,11 @@ script = ExtResource("2_onrkg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=179782266]
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="PlayerTiles" type="TileMapLayer" parent="." unique_id=948150743]
-tile_map_data = PackedByteArray("AAD+/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAABAAAAAQABAAAAAAD8////AQABAAAAAAD7//7/AQABAAAAAAD7//3/AQABAAAAAAACAAEAAQABAAAAAAACAAIAAQABAAAAAAACAAMAAQABAAAAAAA=")
+[node name="PlayerTiles" type="TileMapLayer" parent="." unique_id=563500140]
+process_priority = 2
+process_physics_priority = 2
+tile_map_data = PackedByteArray("AAABAAAAAQAAAAAAAAABAP//AQABAAAAAAD+////AQAAAAAAAAD+/wAAAQABAAEAAAD9/wAAAQABAAAAAAD8/wEAAQABAAEAAAD8/wAAAQABAAEAAAACAAAAAQAAAAEAAAADAAEAAQAAAAEAAAADAAAAAQAAAAEAAAACAP//AQABAAEAAAACAP7/AQABAAEAAAADAP//AQABAAEAAAD9////AQAAAAAAAAD9/wEAAQABAAAAAAA=")
 tile_set = ExtResource("3_lvxji")
+collision_visibility_mode = 1
+physics_quadrant_size = 8
 script = ExtResource("4_lvxji")
-metadata/_custom_type_script = "uid://b3e5koxnfqtn5"
-
-[connection signal="freeze_movement" from="PlayerTiles" to="." method="_on_freeze_movement"]
-[connection signal="unfreeze_movement" from="PlayerTiles" to="." method="_on_unfreeze_movement"]

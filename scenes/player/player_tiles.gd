@@ -1,5 +1,7 @@
 class_name PlayerTiles extends TileMapLayer
 
+signal freeze_movement
+signal unfreeze_movement
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -7,6 +9,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	for c in get_used_cells():
+		var data = get_cell_tile_data(c)
+			
 
+func get_bounds() -> Rect2:
+	var new_rect: Rect2
 
+	new_rect.position = map_to_local(get_used_rect().position)
+	new_rect.end = map_to_local(get_used_rect().end)
+	return new_rect

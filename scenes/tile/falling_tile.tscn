@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bwpcvbb2540ye"]
+
+[ext_resource type="Texture2D" uid="uid://dyk0udgo3rd0f" path="res://assets/sprites/placeholder-tiles.png" id="1_7ryi8"]
+[ext_resource type="Script" uid="uid://210qedrdktw6" path="res://scenes/falling_tile.gd" id="2_sfp7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("1_7ryi8")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(8, 8)
+
+[node name="FallingTile" type="Sprite2D" unique_id=1633204698]
+texture_filter = 1
+texture = SubResource("AtlasTexture_tbgi4")
+script = ExtResource("2_sfp7b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1343123954]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=950628579]
+shape = SubResource("RectangleShape2D_tefeu")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
