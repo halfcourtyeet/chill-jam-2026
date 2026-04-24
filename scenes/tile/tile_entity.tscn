@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dflyorihwetog"]
+
+[node name="TileEntity" type="Node2D" unique_id=1774035370]
+
+[node name="Timer" type="Timer" parent="." unique_id=143570825]

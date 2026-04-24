@@ -1,20 +1,21 @@
 class_name FallingTile extends Sprite2D
 
 var body_attempting: Node2D
-@export var possible_tiles: Array[PackedScene]
-@export var tile_to_atlas: Dictionary
+static var possible_tiles: Array[Vector2i] = [
+	Vector2i(0,0),
+	Vector2i(0,1),
+	Vector2i(1,0),
+	Vector2i(1,1)
+]
 
-var chosen_tile: Sprite2D
+var chosen_tile: Vector2i
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	chosen_tile = possible_tiles.pick_random()
+	texture.region.position = Vector2(chosen_tile) * 8
 
-
-func setup():
-	chosen_tile = possible_tiles.pick_random().instantiate()
-	texture = chosen_tile.texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,7 +34,7 @@ func _on_area_2d_area_entered(area: Area2D):
 
 func try_position(body: Node2D):
 	if body is PlayerTiles:
-		var pos = body.local_to_map(global_position - body.global_position)
+		var pos: Vector2i = body.local_to_map(global_position - body.global_position)
 
 		var alone: bool = true
 		for i in range (0, 16, 4):
@@ -46,8 +47,7 @@ func try_position(body: Node2D):
 			body_attempting = body
 			return
 
-		body.set_cell(pos, 1, Vector2i(1,1))
-		body.unfreeze_movement.emit()
+		body.add_tile(pos, chosen_tile)
 		body_attempting = null
 		queue_free()
 

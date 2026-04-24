@@ -34,4 +34,3 @@ script = ExtResource("4_1bvp3")
 
 [node name="FallingTile" parent="." unique_id=1633204698 instance=ExtResource("5_tbgi4")]
 position = Vector2(106, 102)
-texture = null

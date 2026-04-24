@@ -1,5 +1,4 @@
-@abstract
-class_name TileEntity extends Sprite2D
-
-@abstract 
-func _on_timer_timeout()
+class_name TileEntity extends Node2D
+ 
+func _on_timer_timeout():
+    pass
