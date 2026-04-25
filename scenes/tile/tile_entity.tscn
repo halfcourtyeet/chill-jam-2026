@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dflyorihwetog"]
 
+[ext_resource type="Script" uid="uid://b6o0encu87eqq" path="res://scenes/tile/tile_entity.gd" id="1_q4mir"]
+
 [node name="TileEntity" type="Node2D" unique_id=1774035370]
+script = ExtResource("1_q4mir")
 
 [node name="Timer" type="Timer" parent="." unique_id=143570825]

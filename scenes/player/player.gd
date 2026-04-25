@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not _movement_frozen:
-		move()
+			move()
 	shoot()
 
 
@@ -49,3 +49,6 @@ func _on_freeze_movement():
 
 func _on_unfreeze_movement():
 	_movement_frozen = false
+
+func die():
+	get_tree().quit()

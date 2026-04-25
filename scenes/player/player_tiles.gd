@@ -27,8 +27,19 @@ func get_bounds() -> Rect2:
 func add_tile(pos: Vector2i, tile: Vector2i):
 	set_cell(pos, 1, tile)
 	unfreeze_movement.emit()
-	var new_tile = tile_entity_class.instantiate()
+	var new_tile: TileEntity = tile_entity_class.instantiate()
 	add_child(new_tile)
 	new_tile.position = map_to_local(pos)
-	print(pos)
+	tile_dict.set(pos, new_tile)
+	
+func delete_tile(pos: Vector2i):
+	var tile = get_cell_tile_data(pos)
+	if not tile:
+		printerr("delete_tile(): No valid tile given.")
+		return
+
+	erase_cell(pos)
+	tile_dict.get(pos).queue_free()
+	tile_dict.erase(pos)
+	
 	
