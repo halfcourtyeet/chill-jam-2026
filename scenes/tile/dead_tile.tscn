@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://braroggfecgtp"]
+
+[ext_resource type="Script" uid="uid://dt302ldads5u7" path="res://scenes/tile/dead_tile.gd" id="1_tigri"]
+[ext_resource type="Texture2D" uid="uid://dyk0udgo3rd0f" path="res://assets/sprites/placeholder-tiles.png" id="2_vmx1x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52e74"]
+atlas = ExtResource("2_vmx1x")
+region = Rect2(16, 8, 8, 8)
+
+[node name="DeadTile" type="CharacterBody2D" unique_id=1542969519]
+collision_layer = 0
+collision_mask = 0
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_tigri")
+
+[node name="Timer" type="Timer" parent="." unique_id=107811841]
+wait_time = 2.0
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=499457169]
+texture_filter = 1
+texture = SubResource("AtlasTexture_52e74")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

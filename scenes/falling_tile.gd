@@ -1,5 +1,7 @@
 class_name FallingTile extends Sprite2D
 
+const SPEED = 50
+
 var body_attempting: Node2D
 static var possible_tiles: Array[Vector2i] = [
 	Vector2i(0,0),
@@ -10,6 +12,8 @@ static var possible_tiles: Array[Vector2i] = [
 
 var chosen_tile: Vector2i
 
+var _d: float
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,10 +22,12 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	position.y += 50 * delta
+func _physics_process(delta: float) -> void:
+	position.y += SPEED * delta
 	if body_attempting != null:
 		try_position(body_attempting)
+	
+	_d = delta
 
 func _on_area_2d_body_entered(body: Node2D):
 	try_position(body)
@@ -34,6 +40,9 @@ func _on_area_2d_area_entered(area: Area2D):
 
 func try_position(body: Node2D):
 	if body is PlayerTiles:
+
+		var collision = global_position - body.global_position
+		collision.y += SPEED * _d
 		var pos: Vector2i = body.local_to_map(global_position - body.global_position)
 
 		var alone: bool = true
@@ -53,3 +62,9 @@ func try_position(body: Node2D):
 
 	body.unfreeze_movement.emit()
 	body_attempting = null
+
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is PlayerTiles:
+		body.unfreeze_movement.emit()

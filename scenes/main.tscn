@@ -22,6 +22,7 @@ offset_bottom = 256.0
 color = Color(0.41827944, 0.41827944, 0.41827944, 1)
 
 [node name="SpaceParticles" type="CPUParticles2D" parent="PanelContainer" unique_id=2084546941]
+position = Vector2(-7, 1)
 amount = 20
 lifetime = 10.0
 randomness = 0.55

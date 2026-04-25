@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cwqssmpnsxskw" path="res://scenes/enemy/enemy_bullet.gd" id="2_bkamy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
-size = Vector2(3, 8)
+size = Vector2(1, 1)
 
 [node name="EnemyBullet" type="Sprite2D" unique_id=1621764377]
 z_index = -1
@@ -18,7 +18,7 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=199245650]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_v8qja")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
