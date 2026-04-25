@@ -7,8 +7,6 @@ var perma_tiles: Array[Vector2i] = [
 	Vector2i(-2,-1),
 	Vector2i(1,-1),
 ]
-
-@onready var tile_entity_class: PackedScene = preload("res://scenes/tile/tile_entity.tscn")
 @onready var dead_tile: PackedScene = preload("res://scenes/tile/dead_tile.tscn")
 var tile_dict: Dictionary[Vector2i, TileEntity]
 
@@ -35,18 +33,20 @@ func get_bounds() -> Rect2:
 func add_tile(pos: Vector2i, tile: Vector2i):
 	set_cell(pos, 1, tile)
 	unfreeze_movement.emit()
-	var new_tile: TileEntity = tile_entity_class.instantiate()
+	var scene = get_cell_tile_data(pos).get_custom_data("TileEntity")
+	var new_tile: TileEntity = load("res://scenes/tile/tile_entity.tscn").instantiate()
+	new_tile.set_script(scene)
 	add_child(new_tile)
 	new_tile.position = map_to_local(pos)
 	tile_dict.set(pos, new_tile)
 	
-func delete_tile(pos: Vector2i):
+func delete_tile(pos: Vector2i, even_permas: bool = false):
 	var tile = get_cell_tile_data(pos)
 	if not tile:
 		printerr("delete_tile(): No valid tile given.")
 		return
 
-	if pos in perma_tiles: return
+	if pos in perma_tiles and not even_permas: return
 
 	erase_cell(pos)
 	tile_dict.get(pos).queue_free()

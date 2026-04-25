@@ -6,3 +6,6 @@
 script = ExtResource("1_q4mir")
 
 [node name="Timer" type="Timer" parent="." unique_id=143570825]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

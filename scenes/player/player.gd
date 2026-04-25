@@ -53,7 +53,7 @@ func _on_unfreeze_movement():
 func die():
 	var explosion_particle = load("res://scenes/enemy/explosion_particle.tscn").instantiate()
 	for c in $PlayerTiles.get_used_cells():
-		$PlayerTiles.delete_tile(c)
+		$PlayerTiles.delete_tile(c, true)
 	hide()
 	
 	get_tree().root.add_child(explosion_particle)
