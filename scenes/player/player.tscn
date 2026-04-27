@@ -35,5 +35,7 @@ tile_set = ExtResource("3_lvxji")
 script = ExtResource("4_lvxji")
 metadata/_custom_type_script = "uid://b3e5koxnfqtn5"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=475847089]
+
 [connection signal="freeze_movement" from="PlayerTiles" to="." method="_on_freeze_movement"]
 [connection signal="unfreeze_movement" from="PlayerTiles" to="." method="_on_unfreeze_movement"]

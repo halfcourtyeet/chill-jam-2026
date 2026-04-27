@@ -5,6 +5,27 @@
 [ext_resource type="PackedScene" uid="uid://dydysnksxg82j" path="res://scenes/enemy/enemy.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://scenes/space_particles.gd" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bwpcvbb2540ye" path="res://scenes/tile/falling_tile.tscn" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://c18mssnlanqno" path="res://scenes/level_stream.gd" id="6_tefeu"]
+
+[sub_resource type="Animation" id="Animation_o6xl0"]
+resource_name = "level_1"
+length = 100.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tipki"]
+_data = {
+&"level_1": SubResource("Animation_o6xl0")
+}
 
 [node name="Main" type="Node2D" unique_id=939799480]
 script = ExtResource("1_0xm2m")
@@ -35,3 +56,10 @@ script = ExtResource("4_1bvp3")
 
 [node name="FallingTile" parent="." unique_id=1633204698 instance=ExtResource("5_tbgi4")]
 position = Vector2(106, 102)
+
+[node name="LevelStream" type="Node2D" parent="." unique_id=1685997875]
+script = ExtResource("6_tefeu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelStream" unique_id=1923344670]
+libraries/ = SubResource("AnimationLibrary_tipki")
+autoplay = &"level_1"

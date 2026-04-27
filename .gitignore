@@ -1,7 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-.vscode/
+/.vscode/
 shmup-idea.png
 shmup-idea.png.import
 
