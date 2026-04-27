@@ -8,8 +8,8 @@ var speed: float = 3.0
 
 var shootQueue := 0;
 var shootDelay := 0;
-const shootDelayBetweenEachBullet := 3.0;
-const amountOfBulletsToShoot := 3;
+const shootDelayBetweenEachBullet := 5.0;
+const amountOfBulletsToShoot := 1;
 
 @onready var player_tiles: PlayerTiles = $PlayerTiles
 
