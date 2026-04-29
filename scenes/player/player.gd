@@ -15,6 +15,12 @@ const amountOfBulletsToShoot := 1;
 
 var _movement_frozen = false
 
+var dead := false;
+var gameOver := false;
+var invincibility := 3.0;
+var invincibilityFlicker = true;
+@onready var gameOverScene = preload("res://scenes/gameover/gameover.tscn");
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,9 +31,17 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	print(invincibility);
+	if invincibility > 0: 
+		invincibility -= delta;
+		invincibilityFlicker = !invincibilityFlicker;
+		visible = invincibilityFlicker;
+	elif !dead:
+		show();
+
 	if not _movement_frozen:
 			move()
-	shoot()
+	if !dead: shoot()
 
 
 func move():
@@ -61,15 +75,27 @@ func _on_unfreeze_movement():
 	_movement_frozen = false
 
 func die():
-	var explosion_particle = load("res://scenes/enemy/explosion_particle.tscn").instantiate()
-	for c in $PlayerTiles.get_used_cells():
-		$PlayerTiles.delete_tile(c, true, true)
-	hide()
-	
-	get_tree().root.add_child(explosion_particle)
-	explosion_particle.global_position = global_position
-	explosion_particle.emitting = true
+	if invincibility > 0: return;
+	if !dead:
+		dead = true;
+		Global.lives -= 1;
 
-	await get_tree().create_timer(1.5).timeout
-	queue_free()
-	get_tree().quit()
+		var explosion_particle = load("res://scenes/enemy/explosion_particle.tscn").instantiate()
+		for c in $PlayerTiles.get_used_cells():
+			$PlayerTiles.delete_tile(c, true)
+		hide()
+		
+		get_tree().root.add_child(explosion_particle)
+		explosion_particle.global_position = global_position
+		explosion_particle.emitting = true
+
+		await get_tree().create_timer(1.5).timeout
+		if Global.lives > 0:
+			global_position = Vector2(224/2, 230);
+			dead = false;
+			invincibility = 3.0;
+			show();
+		elif !gameOver:
+			var g = gameOverScene.instantiate();
+			get_node("/root").add_child(g);
+			queue_free();

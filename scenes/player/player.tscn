@@ -17,7 +17,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(16, 16)
+size = Vector2(7, 7)
 
 [node name="Player" type="AnimatedSprite2D" unique_id=84384261]
 texture_filter = 1
@@ -27,6 +27,7 @@ script = ExtResource("2_onrkg")
 [node name="Area2D" type="Area2D" parent="." unique_id=242839332]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=179782266]
+position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="PlayerTiles" type="TileMapLayer" parent="." unique_id=948150743]

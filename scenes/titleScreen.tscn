@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kdihjho3wwj8"]
 
 [ext_resource type="Texture2D" uid="uid://vfftenlimhjw" path="res://assets/sprites/placeholder-galaga.png" id="1_sf2e2"]
-[ext_resource type="Script" uid="uid://ce8xyj7wh82yt" path="res://scenes/titleScreen/titleScreen.gd" id="1_tic01"]
+[ext_resource type="Script" uid="uid://ce8xyj7wh82yt" path="res://scenes/titleScreen.gd" id="1_tic01"]
 [ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://scenes/space_particles.gd" id="2_0yp4q"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1486168935]

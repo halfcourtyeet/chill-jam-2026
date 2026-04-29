@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://210qedrdktw6" path="res://scenes/falling_tile.gd" id="2_sfp7b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+resource_local_to_scene = true
 atlas = ExtResource("1_7ryi8")
 region = Rect2(0, 0, 8, 8)
 

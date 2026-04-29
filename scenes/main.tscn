@@ -6,6 +6,13 @@
 [ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://scenes/space_particles.gd" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bwpcvbb2540ye" path="res://scenes/tile/falling_tile.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://c18mssnlanqno" path="res://scenes/level_stream.gd" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dyk0udgo3rd0f" path="res://assets/sprites/placeholder-tiles.png" id="6_tipki"]
+[ext_resource type="Script" uid="uid://c73swyimd6lw6" path="res://scenes/gui.gd" id="7_o6xl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
+resource_local_to_scene = true
+atlas = ExtResource("6_tipki")
+region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="Animation" id="Animation_o6xl0"]
 resource_name = "level_1"
@@ -17,9 +24,786 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.36, 0.63, 0.86, 3.5666666, 4.4333334, 4.5133333, 5.249042, 5.4333334, 5.666667, 5.7333336, 6.1333337, 7.066667, 7.7000003, 11.513332, 11.833333, 11.943333, 11.983334, 12.033333, 12.083333, 16.166666, 16.3, 16.4, 16.5, 16.566666, 16.7, 16.766666, 16.8, 16.833332, 16.866667, 16.9, 16.933334, 16.966667, 17, 17.033333, 17.066666, 17.1, 17.133333, 18.421167, 18.691168, 18.921167, 19.53535, 19.805351, 20.03535, 21.627834, 22.494501, 22.574501, 22.742018, 23.31021, 23.494501, 23.608685, 23.688684, 23.727835, 23.7945, 24.1945, 24.424393, 24.608685, 24.842018, 24.908684, 25.127834, 25.308685, 25.761168, 26.242018, 26.87535, 29.574501, 29.8945, 30.004501, 30.044502, 30.094501, 30.1445, 30.688683, 31.008684, 31.118683, 31.158684, 31.208683, 31.258684, 34.227833, 34.361168, 34.461166, 34.561165, 34.62783, 34.76117, 34.827835, 34.861168, 34.8945, 34.927834, 34.961166, 34.9945, 35.027832, 35.061165, 35.094498, 35.12783, 35.161167, 35.1945, 35.34202, 35.47535, 35.575348, 35.67535, 35.742016, 35.87535, 35.942017, 35.97535, 36.008682, 36.042015, 36.075348, 36.108685, 36.142017, 36.17535, 36.208683, 36.242016, 36.275352, 36.308685, 37.337906, 37.607906, 37.837906, 38.452087, 38.72209, 38.952087, 39.294235, 39.564236, 39.794235, 40.408417, 40.54457, 40.67842, 40.908417, 41.41124, 41.49124, 41.658756, 42.226948, 42.41124, 42.5009, 42.52542, 42.605423, 42.644573, 42.71124, 43.111237, 43.341133, 43.36757, 43.44757, 43.52542, 43.615086, 43.75876, 43.825424, 44.04457, 44.183277, 44.225426, 44.36757, 44.48175, 44.561752, 44.600903, 44.66757, 44.677906, 45.067566, 45.158756, 45.297462, 45.48175, 45.715088, 45.781754, 45.79209, 46.0009, 46.181755, 46.634235, 47.115086, 47.74842, 48.49124, 48.81124, 48.92124, 48.961243, 49.01124, 49.06124, 49.605423, 49.925423, 50.035423, 50.075424, 50.12542, 50.175423, 50.44757, 50.76757, 50.87757, 50.917572, 50.967567, 51.01757, 51.561752, 51.881752, 51.991753, 52.031754, 52.08175, 52.131752, 53.14457, 53.27791, 53.377907, 53.477905, 53.54457, 53.67791, 53.744576, 53.77791, 53.81124, 53.844574, 53.877907, 53.91124, 53.944572, 53.977905, 54.01124, 54.04457, 54.077904, 54.111237, 54.25876, 54.39209, 54.49209, 54.592087, 54.658752, 54.79209, 54.858757, 54.89209, 54.925423, 54.958755, 54.99209, 55.02542, 55.058754, 55.092087, 55.1009, 55.12542, 55.158752, 55.192093, 55.225426, 55.234238, 55.334236, 55.434235, 55.5009, 55.63424, 55.700905, 55.734238, 55.76757, 55.800903, 55.834236, 55.86757, 55.9009, 55.934235, 55.967567, 56.0009, 56.034233, 56.067566, 56.215088, 56.34842, 56.448418, 56.548416, 56.61508, 56.74842, 56.815086, 56.84842, 56.881752, 56.915085, 56.948418, 56.98175, 57.015083, 57.048416, 57.08175, 57.11508, 57.148422, 57.181755),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}, {
+"args": [Vector2(0, 0)],
+"method": &"spawn_enemy"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tipki"]
@@ -40,7 +824,7 @@ position = Vector2(103, 31)
 z_index = -12
 offset_right = 224.0
 offset_bottom = 256.0
-color = Color(0.41827944, 0.41827944, 0.41827944, 1)
+color = Color(0.15487596, 0.154876, 0.1548759, 1)
 
 [node name="SpaceParticles" type="CPUParticles2D" parent="PanelContainer" unique_id=2084546941]
 position = Vector2(-7, 1)
@@ -56,6 +840,7 @@ script = ExtResource("4_1bvp3")
 
 [node name="FallingTile" parent="." unique_id=1633204698 instance=ExtResource("5_tbgi4")]
 position = Vector2(106, 102)
+texture = SubResource("AtlasTexture_85g3d")
 
 [node name="LevelStream" type="Node2D" parent="." unique_id=1685997875]
 script = ExtResource("6_tefeu")
@@ -63,3 +848,13 @@ script = ExtResource("6_tefeu")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelStream" unique_id=1923344670]
 libraries/ = SubResource("AnimationLibrary_tipki")
 autoplay = &"level_1"
+
+[node name="gui" type="Node2D" parent="." unique_id=1289701494]
+script = ExtResource("7_o6xl0")
+
+[node name="score" type="Label" parent="gui" unique_id=1400353160]
+offset_left = 184.0
+offset_right = 224.0
+offset_bottom = 23.0
+text = "10"
+horizontal_alignment = 2
