@@ -17,6 +17,8 @@ var _movement_frozen = false
 
 var dead := false;
 var gameOver := false;
+var invincibility := 3.0;
+var invincibilityFlicker = true;
 @onready var gameOverScene = preload("res://scenes/gameover/gameover.tscn");
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +31,14 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	print(invincibility);
+	if invincibility > 0: 
+		invincibility -= delta;
+		invincibilityFlicker = !invincibilityFlicker;
+		visible = invincibilityFlicker;
+	elif !dead:
+		show();
+
 	if not _movement_frozen:
 			move()
 	if !dead: shoot()
@@ -65,6 +75,7 @@ func _on_unfreeze_movement():
 	_movement_frozen = false
 
 func die():
+	if invincibility > 0: return;
 	if !dead:
 		dead = true;
 		Global.lives -= 1;
@@ -82,6 +93,7 @@ func die():
 		if Global.lives > 0:
 			global_position = Vector2(224/2, 230);
 			dead = false;
+			invincibility = 3.0;
 			show();
 		elif !gameOver:
 			var g = gameOverScene.instantiate();
