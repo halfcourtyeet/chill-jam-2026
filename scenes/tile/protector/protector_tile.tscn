@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cuuu12pdyhr2v"]
+
+[ext_resource type="Script" uid="uid://37b22hd5de36" path="res://scenes/tile/protector/protector_tile.gd" id="1_fu874"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4mir"]
+radius = 12.0
+
+[node name="ProtectorTile" type="Node2D" unique_id=1774035370]
+script = ExtResource("1_fu874")
+
+[node name="Timer" type="Timer" parent="." unique_id=143570825]
+wait_time = 1.5
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1284300851]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=505891064]
+shape = SubResource("CircleShape2D_q4mir")
+disabled = true
+
+[node name="BulletStopActiveTimer" type="Timer" parent="." unique_id=1768572471]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BulletStopActiveTimer" to="." method="_on_bullet_stop_active_timer_timeout"]

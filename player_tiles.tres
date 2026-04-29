@@ -1,8 +1,11 @@
 [gd_resource type="TileSet" format=3 uid="uid://iklbnwqf68u4"]
 
 [ext_resource type="Script" uid="uid://b6o0encu87eqq" path="res://scenes/tile/tile_entity.gd" id="1_4wlw6"]
+[ext_resource type="PackedScene" uid="uid://gxlmrwnmvxy8" path="res://scenes/tile/bomb/bomb_tile.tscn" id="1_a00rl"]
 [ext_resource type="Texture2D" uid="uid://dyk0udgo3rd0f" path="res://assets/sprites/placeholder-tiles.png" id="1_glu2p"]
-[ext_resource type="Script" uid="uid://brnp4dqt3bm7a" path="res://scenes/tile/shooter_tile.gd" id="1_xaxaj"]
+[ext_resource type="Script" uid="uid://brnp4dqt3bm7a" path="res://scenes/tile/shooter/shooter_tile.gd" id="1_xaxaj"]
+[ext_resource type="PackedScene" uid="uid://isfum6mpr1kq" path="res://scenes/tile/glue/glue_tile.tscn" id="2_a00rl"]
+[ext_resource type="PackedScene" uid="uid://cuuu12pdyhr2v" path="res://scenes/tile/protector/protector_tile.tscn" id="4_a00rl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvxji"]
 texture = ExtResource("1_glu2p")
@@ -10,7 +13,7 @@ texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 0:0/0/custom_data_0 = "Salty"
-0:0/0/custom_data_1 = ExtResource("1_4wlw6")
+0:0/0/custom_data_1 = ExtResource("1_a00rl")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 1:0/0/custom_data_0 = "Spicy"
@@ -18,11 +21,11 @@ texture_region_size = Vector2i(8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 1:1/0/custom_data_0 = "Sweet"
-1:1/0/custom_data_1 = ExtResource("1_4wlw6")
+1:1/0/custom_data_1 = ExtResource("4_a00rl")
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 0:1/0/custom_data_0 = "Sour"
-0:1/0/custom_data_1 = ExtResource("1_4wlw6")
+0:1/0/custom_data_1 = ExtResource("2_a00rl")
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 2:0/0/custom_data_0 = "Perma"

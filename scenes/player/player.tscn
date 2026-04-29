@@ -30,7 +30,7 @@ script = ExtResource("2_onrkg")
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="PlayerTiles" type="TileMapLayer" parent="." unique_id=948150743]
-tile_map_data = PackedByteArray("AAD+////AQACAAAAAAABAP//AQACAAAAAAD9////AQAAAAAAAAD8////AQAAAAAAAAD7////AQAAAAAAAAD6////AQAAAAAAAAD5////AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+////AQACAAAAAAABAP//AQACAAAAAAD8////AQAAAAAAAAD9////AQABAAAAAAD9//7/AQAAAAEAAAD8//7/AQAAAAEAAAD7//7/AQAAAAEAAAD7////AQAAAAEAAAD7/wAAAQAAAAEAAAD8/wAAAQAAAAEAAAD9/wAAAQAAAAEAAAACAP//AQAAAAEAAAADAP//AQAAAAEAAAAEAP//AQABAAEAAAA=")
 tile_set = ExtResource("3_lvxji")
 script = ExtResource("4_lvxji")
 metadata/_custom_type_script = "uid://b3e5koxnfqtn5"
