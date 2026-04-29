@@ -1,5 +1,9 @@
 extends Node
 
+var score = 0;
+var lives = 0;
+const startLives = 3;
+
 func _process(delta: float) -> void:
 	fullscreenCode();
 	closeGameCode();

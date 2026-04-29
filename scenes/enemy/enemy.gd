@@ -16,6 +16,7 @@ func die():
 	get_tree().root.add_child(p)
 	p.emitting = true
 	p.global_position = global_position
+	Global.score += 10;
 	queue_free()
 
 func shoot_bullet():

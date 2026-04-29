@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://scenes/space_particles.gd" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bwpcvbb2540ye" path="res://scenes/tile/falling_tile.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://c18mssnlanqno" path="res://scenes/level_stream.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://c73swyimd6lw6" path="res://scenes/gui.gd" id="7_o6xl0"]
 
 [sub_resource type="Animation" id="Animation_o6xl0"]
 resource_name = "level_1"
@@ -40,7 +41,7 @@ position = Vector2(103, 31)
 z_index = -12
 offset_right = 224.0
 offset_bottom = 256.0
-color = Color(0.41827944, 0.41827944, 0.41827944, 1)
+color = Color(0.15487596, 0.154876, 0.1548759, 1)
 
 [node name="SpaceParticles" type="CPUParticles2D" parent="PanelContainer" unique_id=2084546941]
 position = Vector2(-7, 1)
@@ -63,3 +64,13 @@ script = ExtResource("6_tefeu")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelStream" unique_id=1923344670]
 libraries/ = SubResource("AnimationLibrary_tipki")
 autoplay = &"level_1"
+
+[node name="gui" type="Node2D" parent="." unique_id=1289701494]
+script = ExtResource("7_o6xl0")
+
+[node name="score" type="Label" parent="gui" unique_id=1400353160]
+offset_left = 184.0
+offset_right = 224.0
+offset_bottom = 23.0
+text = "10"
+horizontal_alignment = 2

@@ -25,8 +25,11 @@ func _process(delta: float) -> void:
 		Global.playSound(selectionSound2);
 		match selection:
 			0: 
+				#start game
+				Global.lives = Global.startLives;
 				get_tree().change_scene_to_packed(mainGameScene);
 			2:
+				#quit game
 				get_tree().quit();
 
 	#graphics
