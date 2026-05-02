@@ -25,14 +25,14 @@ func die():
 	p.global_position = global_position
 	Global.score += 10;
 
-	if randi_range(0,3) == 0:
+	if randf_range(0, 100) < 50.0:
 		var tile = fallingTile.instantiate();
 		tile.global_position = global_position;
 		get_tree().root.add_child(tile);
 
 	queue_free()
 
-func shoot_bullet():
+func shoot_bullet():	
 	var b = bullet.instantiate()
 	get_tree().root.add_child(b)
 	b.global_position = global_position

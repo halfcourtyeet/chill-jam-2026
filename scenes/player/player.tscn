@@ -1,37 +1,66 @@
-[gd_scene format=4 uid="uid://xcdi84j6tn3x"]
+[gd_scene format=3 uid="uid://xcdi84j6tn3x"]
 
-[ext_resource type="Texture2D" uid="uid://vfftenlimhjw" path="res://assets/sprites/placeholder-galaga.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://drcwb8c3kcgan" path="res://assets/sprites/master.png" id="1_lvxji"]
 [ext_resource type="Script" uid="uid://p4knwtnwr8a2" path="res://scenes/player/player.gd" id="2_onrkg"]
 [ext_resource type="TileSet" uid="uid://iklbnwqf68u4" path="res://player_tiles.tres" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://b3e5koxnfqtn5" path="res://scenes/player/player_tiles.gd" id="4_lvxji"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
+atlas = ExtResource("1_lvxji")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
+atlas = ExtResource("1_lvxji")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
+atlas = ExtResource("1_lvxji")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qek5x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4flbx")
+"texture": SubResource("AtlasTexture_lvxji")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vfm")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p47bc")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(7, 7)
+size = Vector2(9, 16)
 
 [node name="Player" type="AnimatedSprite2D" unique_id=84384261]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_sh265")
+sprite_frames = SubResource("SpriteFrames_qek5x")
+animation = &"left"
 script = ExtResource("2_onrkg")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=242839332]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=179782266]
-position = Vector2(-0.5, 1.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="PlayerTiles" type="TileMapLayer" parent="." unique_id=948150743]
-tile_map_data = PackedByteArray("AAD+////AQACAAAAAAABAP//AQACAAAAAAD8////AQAAAAAAAAD9////AQABAAAAAAD9//7/AQAAAAEAAAD8//7/AQAAAAEAAAD7//7/AQAAAAEAAAD7////AQAAAAEAAAD7/wAAAQAAAAEAAAD8/wAAAQAAAAEAAAD9/wAAAQAAAAEAAAACAP//AQAAAAEAAAADAP//AQAAAAEAAAAEAP//AQABAAEAAAA=")
+tile_map_data = PackedByteArray(0, 0, 254, 255, 255, 255, 0, 0, 7, 0, 0, 0, 0, 0, 1, 0, 255, 255, 0, 0, 7, 0, 0, 0, 0, 0)
 tile_set = ExtResource("3_lvxji")
 script = ExtResource("4_lvxji")
 metadata/_custom_type_script = "uid://b3e5koxnfqtn5"

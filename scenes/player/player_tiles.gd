@@ -30,9 +30,8 @@ func get_bounds() -> Rect2:
 	new_rect.end = map_to_local(get_used_rect().end)
 	return new_rect
 
-
 func add_tile(pos: Vector2i, tile: Vector2i):
-	set_cell(pos, 1, tile)
+	set_cell(pos, 0, tile)
 	unfreeze_movement.emit()
 	var scene = get_cell_tile_data(pos).get_custom_data("TileEntity")
 	var new_tile: TileEntity

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ccqf70awbuqm4"]
+
+[ext_resource type="Texture2D" uid="uid://drcwb8c3kcgan" path="res://assets/sprites/master.png" id="1_chlba"]
+[ext_resource type="Script" uid="uid://jxt5tatmh8b" path="res://scenes/tile/shooter/tile_bullet.gd" id="2_5se1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5se1q"]
+atlas = ExtResource("1_chlba")
+region = Rect2(48, 72, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv7v1"]
+atlas = ExtResource("1_chlba")
+region = Rect2(32, 72, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_677tj"]
+atlas = ExtResource("1_chlba")
+region = Rect2(40, 72, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88ecs"]
+animations = [{
+"frames": [{
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_5se1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv7v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_677tj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
+size = Vector2(6, 6)
+
+[node name="TileBullet" type="AnimatedSprite2D" unique_id=675953036]
+z_index = -1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_88ecs")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+script = ExtResource("2_5se1q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=755790337]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=199245650]
+shape = SubResource("RectangleShape2D_v8qja")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

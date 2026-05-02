@@ -1,10 +1,9 @@
 class_name ShooterTile extends TileEntity
 
-@onready var bullet = preload("res://scenes/player/bullet.tscn")
+@onready var tile_bullet = preload("res://scenes/tile/shooter/tile_bullet.tscn")
 
 func _on_timer_timeout():
     
-    var b: Bullet = bullet.instantiate()
+    var b: TileBullet = tile_bullet.instantiate()
     get_tree().root.add_child(b)
     b.global_position = global_position
-    

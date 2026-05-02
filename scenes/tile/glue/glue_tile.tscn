@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://isfum6mpr1kq"]
 
-[ext_resource type="Texture2D" uid="uid://dyk0udgo3rd0f" path="res://assets/sprites/placeholder-tiles.png" id="1_u30b0"]
 [ext_resource type="Script" uid="uid://dy2ywcn8rk7wc" path="res://scenes/tile/glue/glue_tile.gd" id="2_1vh5w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vh5w"]
-atlas = ExtResource("1_u30b0")
-region = Rect2(0, 8, 8, 8)
-
-[node name="GlueTile" type="Sprite2D" unique_id=1240546422]
-texture = SubResource("AtlasTexture_1vh5w")
+[node name="GlueTile" type="Node2D" unique_id=1909142413]
+texture_filter = 1
 script = ExtResource("2_1vh5w")

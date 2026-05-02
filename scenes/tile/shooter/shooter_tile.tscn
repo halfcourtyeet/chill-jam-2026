@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://q3orb5d6upja"]
+
+[ext_resource type="Script" uid="uid://brnp4dqt3bm7a" path="res://scenes/tile/shooter/shooter_tile.gd" id="1_e1vfn"]
+[ext_resource type="Texture2D" uid="uid://cm2m6bkt8fkld" path="res://assets/sprites/tiles.png" id="1_fyskx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2dfg"]
+atlas = ExtResource("1_fyskx")
+region = Rect2(16, 8, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47xwn"]
+atlas = ExtResource("1_fyskx")
+region = Rect2(0, 8, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rughb"]
+atlas = ExtResource("1_fyskx")
+region = Rect2(8, 8, 8, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulky7"]
+atlas = ExtResource("1_fyskx")
+region = Rect2(16, 8, 8, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1vfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2dfg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47xwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rughb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulky7")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]
+
+[node name="ShooterTile" type="AnimatedSprite2D" unique_id=721149953]
+y_sort_enabled = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_e1vfn")
+offset = Vector2(0, 4)
+script = ExtResource("1_e1vfn")

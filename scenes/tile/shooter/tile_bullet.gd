@@ -1,4 +1,4 @@
-class_name Bullet extends Sprite2D
+class_name TileBullet extends AnimatedSprite2D
 
 const SPEED = 200
 
@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	global_position.y -= SPEED * delta
-	if global_position.y < 0 + (texture.get_size().y / 2):
+	if global_position.y < 16:
 		queue_free()
 
 func _on_area_2d_area_entered(area: Area2D):

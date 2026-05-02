@@ -1,4 +1,4 @@
-class_name FallingTile extends Sprite2D
+class_name FallingTile extends Node2D
 
 const SPEED = 50
 
@@ -6,8 +6,8 @@ var body_attempting: Node2D
 static var possible_tiles: Array[Vector2i] = [
 	Vector2i(0,0),
 	Vector2i(0,1),
-	Vector2i(1,0),
-	Vector2i(1,1)
+	Vector2i(0,2),
+	Vector2i(1,3)
 ]
 
 var chosen_tile: Vector2i
@@ -18,7 +18,7 @@ var _d: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	chosen_tile = possible_tiles.pick_random()
-	texture.region.position = Vector2(chosen_tile) * 8
+	$Tiles.set_cell(Vector2i(0,0), 0, chosen_tile)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

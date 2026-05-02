@@ -1,13 +1,31 @@
 [gd_scene format=3 uid="uid://dydysnksxg82j"]
 
-[ext_resource type="Texture2D" uid="uid://cto811j2sp8ca" path="res://assets/sprites/placeholder-enemy.png" id="1_4gyqm"]
 [ext_resource type="Script" uid="uid://bisv6864u0bre" path="res://scenes/enemy/enemy.gd" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://drcwb8c3kcgan" path="res://assets/sprites/master.png" id="1_a3pup"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qi2p4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_40wdo"]
+atlas = ExtResource("1_a3pup")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjssy"]
+atlas = ExtResource("1_a3pup")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl05p"]
+atlas = ExtResource("1_a3pup")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cwlon"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4gyqm")
+"texture": SubResource("AtlasTexture_40wdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjssy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl05p")
 }],
 "loop": true,
 "name": &"default",
@@ -19,7 +37,7 @@ size = Vector2(16, 16)
 
 [node name="Enemy" type="AnimatedSprite2D" unique_id=1524111252]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_qi2p4")
+sprite_frames = SubResource("SpriteFrames_cwlon")
 script = ExtResource("1_7k104")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2269545]

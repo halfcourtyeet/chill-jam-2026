@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://braroggfecgtp"]
 
 [ext_resource type="Script" uid="uid://dt302ldads5u7" path="res://scenes/tile/dead_tile.gd" id="1_tigri"]
-[ext_resource type="Texture2D" uid="uid://dyk0udgo3rd0f" path="res://assets/sprites/placeholder-tiles.png" id="2_vmx1x"]
+[ext_resource type="Texture2D" uid="uid://drcwb8c3kcgan" path="res://assets/sprites/master.png" id="2_vmx1x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52e74"]
 atlas = ExtResource("2_vmx1x")
-region = Rect2(16, 8, 8, 8)
+region = Rect2(104, 32, 8, 8)
 
 [node name="DeadTile" type="CharacterBody2D" unique_id=1542969519]
 collision_layer = 0

@@ -1,6 +1,6 @@
 class_name Player extends AnimatedSprite2D
 
-var speed: float = 3.0
+var speed: float = 2.0
 
 @onready var size = sprite_frames.get_frame_texture("default", 0).get_size()
 @onready var bullet = preload("res://scenes/player/bullet.tscn")
@@ -19,6 +19,8 @@ var dead := false;
 var gameOver := false;
 var invincibility := 3.0;
 var invincibilityFlicker = true;
+var direction: Vector2
+
 @onready var gameOverScene = preload("res://scenes/gameover/gameover.tscn");
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +33,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	print(invincibility);
 	if invincibility > 0: 
 		invincibility -= delta;
 		invincibilityFlicker = !invincibilityFlicker;
@@ -43,9 +44,16 @@ func _physics_process(delta: float) -> void:
 			move()
 	if !dead: shoot()
 
+	if direction.x < 0.0:
+		play("left")
+	elif direction.x > 0.0:
+		play("right")
+	else:
+		play("default")
+	
 
 func move():
-	var direction = Input.get_vector("left", "right", "up", "down")
+	direction = Input.get_vector("left", "right", "up", "down")
 	position += speed * direction 
 
 	position.x = clampf(position.x, (size.x / 2), get_viewport_rect().size.x - (size.x / 2))
@@ -58,11 +66,12 @@ func move():
 func shoot():
 	if Input.is_action_just_pressed("shoot"): shootQueue = amountOfBulletsToShoot;
 
-	if shootQueue > 0 and shootDelay <= 0:
+	if shootQueue > 0 and shootDelay <= 0 and get_tree().get_nodes_in_group("player_bullets").is_empty():
 		shootQueue -= 1;
 		shootDelay = shootDelayBetweenEachBullet;
-		var b = bullet.instantiate()
+		var b: Bullet = bullet.instantiate()
 		get_tree().root.add_child(b)
+		b.add_to_group("player_bullets")
 		b.global_position = global_position
 		Global.playSound(shootSound);
 	else:
