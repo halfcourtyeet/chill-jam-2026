@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4mir"]
 radius = 12.0
 
-[node name="ProtectorTile" type="Node2D" unique_id=1774035370]
+[node name="ProtectorTile" type="AnimatedSprite2D" unique_id=1406053006]
 script = ExtResource("1_fu874")
 
 [node name="Timer" type="Timer" parent="." unique_id=143570825]

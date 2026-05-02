@@ -7,3 +7,4 @@ func _on_timer_timeout():
     var b: TileBullet = tile_bullet.instantiate()
     get_tree().root.add_child(b)
     b.global_position = global_position
+    play("shoot")

@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dy2ywcn8rk7wc" path="res://scenes/tile/glue/glue_tile.gd" id="2_1vh5w"]
 
-[node name="GlueTile" type="Node2D" unique_id=1909142413]
+[node name="GlueTile" type="AnimatedSprite2D" unique_id=1343640007]
 texture_filter = 1
 script = ExtResource("2_1vh5w")

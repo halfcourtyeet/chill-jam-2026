@@ -7,17 +7,17 @@
 atlas = ExtResource("1_fyskx")
 region = Rect2(16, 8, 8, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyskx"]
+atlas = ExtResource("1_fyskx")
+region = Rect2(0, 8, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8pb6"]
+atlas = ExtResource("1_fyskx")
+region = Rect2(8, 8, 8, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_47xwn"]
 atlas = ExtResource("1_fyskx")
-region = Rect2(0, 8, 8, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rughb"]
-atlas = ExtResource("1_fyskx")
-region = Rect2(8, 8, 8, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulky7"]
-atlas = ExtResource("1_fyskx")
-region = Rect2(16, 8, 8, 12)
+region = Rect2(16, 8, 8, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e1vfn"]
 animations = [{
@@ -31,13 +31,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fyskx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8pb6")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_47xwn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rughb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ulky7")
 }],
 "loop": false,
 "name": &"shoot",
@@ -48,5 +48,12 @@ animations = [{
 y_sort_enabled = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_e1vfn")
+animation = &"shoot"
 offset = Vector2(0, 4)
 script = ExtResource("1_e1vfn")
+
+[node name="Timer" type="Timer" parent="." unique_id=305366422]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
