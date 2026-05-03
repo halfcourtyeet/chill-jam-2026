@@ -1,4 +1,4 @@
-class_name EnemyBullet extends Sprite2D
+class_name EnemyBullet extends AnimatedSprite2D
 
 const SPEED = 65
 
@@ -8,16 +8,10 @@ var _d: float
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _process(_delta: float) -> void:
-	if sin(Time.get_ticks_msec() / 50.0) < 0:
-		flip_h = false
-	else:
-		flip_h = true
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	global_position.y += SPEED * delta
-	if global_position.y < 0 + (texture.get_size().y / 2):
+	if global_position.y > get_viewport_rect().size.y + 16:
 		queue_free()
 	_d = delta
 

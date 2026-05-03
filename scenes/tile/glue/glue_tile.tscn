@@ -1,7 +1,46 @@
 [gd_scene format=3 uid="uid://isfum6mpr1kq"]
 
+[ext_resource type="Texture2D" uid="uid://cm2m6bkt8fkld" path="res://assets/sprites/tiles.png" id="1_pmgas"]
 [ext_resource type="Script" uid="uid://dy2ywcn8rk7wc" path="res://scenes/tile/glue/glue_tile.gd" id="2_1vh5w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmgas"]
+atlas = ExtResource("1_pmgas")
+region = Rect2(8, 24, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui4ds"]
+atlas = ExtResource("1_pmgas")
+region = Rect2(16, 24, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geb1v"]
+atlas = ExtResource("1_pmgas")
+region = Rect2(0, 24, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whcj6"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_pmgas")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ui4ds")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geb1v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GlueTile" type="AnimatedSprite2D" unique_id=1343640007]
 texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_whcj6")
+animation = &"broken"
+autoplay = "default"
+offset = Vector2(0, 4)
 script = ExtResource("2_1vh5w")

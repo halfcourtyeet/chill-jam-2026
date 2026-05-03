@@ -8,7 +8,6 @@ var perma_tiles: Array[Vector2i] = [
 	Vector2i(1,-1),
 ]
 
-@onready var dead_tile: PackedScene = preload("res://scenes/tile/dead_tile.tscn")
 var tile_dict: Dictionary[Vector2i, TileEntity]
 
 # Called when the node enters the scene tree for the first time.
@@ -59,6 +58,7 @@ func delete_tile(pos: Vector2i, wipe_glues: bool = false, even_permas: bool = fa
 	var entity = tile_dict.get(pos)
 	if entity is GlueTile and not wipe_glues:
 		entity.lives -= 1
+		entity.play("broken")
 		if entity.lives > 0: return
 
 	if pos in perma_tiles and not even_permas: return
@@ -67,10 +67,7 @@ func delete_tile(pos: Vector2i, wipe_glues: bool = false, even_permas: bool = fa
 	tile_dict.get(pos).queue_free()
 	tile_dict.erase(pos)
 
-	var dt: DeadTile = dead_tile.instantiate()
-	
-	get_tree().root.add_child(dt)
-	dt.global_position = to_global(map_to_local(pos))
+
 
 	
 

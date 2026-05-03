@@ -2,6 +2,8 @@ class_name FallingTile extends Node2D
 
 const SPEED = 50
 
+@onready var dead_tile: PackedScene = preload("res://scenes/tile/dead_tile.tscn")
+
 var body_attempting: Node2D
 static var possible_tiles: Array[Vector2i] = [
 	Vector2i(0,0),
@@ -14,12 +16,10 @@ var chosen_tile: Vector2i
 
 var _d: float
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	chosen_tile = possible_tiles.pick_random()
 	$Tiles.set_cell(Vector2i(0,0), 0, chosen_tile)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -32,11 +32,18 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D):
 	try_position(body)
 
-		
 
 func _on_area_2d_area_entered(area: Area2D):
-	if area.owner is Player:
+	if area.owner is Player or area.owner is Bullet:
+		
+		var dt: DeadTile = dead_tile.instantiate()
+		
+		get_tree().root.add_child.call_deferred(dt)
+		dt.global_position = global_position
 		queue_free()
+
+		if area.owner is Bullet:
+			area.owner.queue_free()
 
 func try_position(body: Node2D):
 	if body is PlayerTiles:
@@ -68,3 +75,4 @@ func try_position(body: Node2D):
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is PlayerTiles:
 		body.unfreeze_movement.emit()
+		body_attempting = null

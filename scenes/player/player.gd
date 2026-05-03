@@ -78,9 +78,11 @@ func shoot():
 		shootDelay -= 0.1;
 
 func _on_freeze_movement():
+	print("+Movement frozen")
 	_movement_frozen = true
 
 func _on_unfreeze_movement():
+	print("-Movement unfrozen")
 	_movement_frozen = false
 
 func die():
@@ -97,6 +99,8 @@ func die():
 		get_tree().root.add_child(explosion_particle)
 		explosion_particle.global_position = global_position
 		explosion_particle.emitting = true
+		$AudioStreamPlayer2D.stream = load("res://assets/audio/sounds/death3.wav")
+		$AudioStreamPlayer2D.play()
 
 		await get_tree().create_timer(1.5).timeout
 		if Global.lives > 0:

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
 size = Vector2(8, 8)
 
-[node name="FallingTile" type="Node2D" unique_id=1555977211]
+[node name="FallingTile" type="Node2D" unique_id=494334793]
 texture_filter = 1
 script = ExtResource("2_sfp7b")
 
