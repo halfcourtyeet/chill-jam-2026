@@ -21,4 +21,10 @@ script = ExtResource("2_v8qja")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=199245650]
 shape = SubResource("RectangleShape2D_v8qja")
 
+[node name="DeathTimer" type="Timer" parent="." unique_id=549238385]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

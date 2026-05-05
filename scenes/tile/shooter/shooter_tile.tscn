@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brnp4dqt3bm7a" path="res://scenes/tile/shooter/shooter_tile.gd" id="1_e1vfn"]
 [ext_resource type="Texture2D" uid="uid://cm2m6bkt8fkld" path="res://assets/sprites/tiles.png" id="1_fyskx"]
+[ext_resource type="AudioStream" uid="uid://dcm4koxh2m2pi" path="res://assets/audio/sounds/NEW sounds/shooterTileShooting.wav" id="3_n8pb6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n2dfg"]
 atlas = ExtResource("1_fyskx")
@@ -55,5 +56,8 @@ script = ExtResource("1_e1vfn")
 [node name="Timer" type="Timer" parent="." unique_id=305366422]
 wait_time = 1.5
 autostart = true
+
+[node name="ShootNoise" type="AudioStreamPlayer2D" parent="." unique_id=491226482]
+stream = ExtResource("3_n8pb6")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

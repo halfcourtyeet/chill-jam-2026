@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dt302ldads5u7" path="res://scenes/tile/dead_tile.gd" id="1_tigri"]
 [ext_resource type="Texture2D" uid="uid://drcwb8c3kcgan" path="res://assets/sprites/master.png" id="2_vmx1x"]
+[ext_resource type="AudioStream" uid="uid://bxnplmhp7v22h" path="res://assets/audio/sounds/NEW sounds/extraclick.wav" id="3_52e74"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52e74"]
 atlas = ExtResource("2_vmx1x")
@@ -22,5 +23,9 @@ autostart = true
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=499457169]
 texture_filter = 1
 texture = SubResource("AtlasTexture_52e74")
+
+[node name="DeadNoise" type="AudioStreamPlayer2D" parent="." unique_id=1368979340]
+stream = ExtResource("3_52e74")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

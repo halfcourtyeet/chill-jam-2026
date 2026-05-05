@@ -1,8 +1,24 @@
 [gd_scene format=3 uid="uid://kdihjho3wwj8"]
 
-[ext_resource type="Texture2D" uid="uid://vfftenlimhjw" path="res://assets/sprites/placeholder-galaga.png" id="1_sf2e2"]
 [ext_resource type="Script" uid="uid://ce8xyj7wh82yt" path="res://scenes/titleScreen.gd" id="1_tic01"]
 [ext_resource type="Script" uid="uid://c41e8crd3kn24" path="res://scenes/space_particles.gd" id="2_0yp4q"]
+[ext_resource type="FontFile" uid="uid://ce7p1v00ofrxd" path="res://Short_Story.ttf" id="2_btmd0"]
+[ext_resource type="Texture2D" uid="uid://bnagd1pdv2prx" path="res://assets/sprites/bomb_tile.png" id="2_iul6a"]
+[ext_resource type="Texture2D" uid="uid://drcwb8c3kcgan" path="res://assets/sprites/master.png" id="3_iul6a"]
+[ext_resource type="Texture2D" uid="uid://cl1t4cxb842tt" path="res://assets/sprites/shield_tile.png" id="4_imref"]
+[ext_resource type="Texture2D" uid="uid://b7w74jmof3rvo" path="res://assets/sprites/glue_tile.png" id="5_3s32a"]
+[ext_resource type="Texture2D" uid="uid://co78mojuun7ok" path="res://assets/sprites/shooter_tile.png" id="6_btmd0"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uxtqq"]
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_uxtqq"]
+offsets = PackedFloat32Array(0, 0.5100636, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxtqq"]
+atlas = ExtResource("3_iul6a")
+region = Rect2(16, 16, 16, 16)
 
 [node name="TitleScreen" type="Node2D" unique_id=1486168935]
 script = ExtResource("1_tic01")
@@ -13,22 +29,19 @@ offset_bottom = 112.0
 
 [node name="title" type="Label" parent="gui" unique_id=1285799097]
 layout_mode = 2
-text = "Epic shmput title"
+theme_override_fonts/font = ExtResource("2_btmd0")
+theme_override_font_sizes/font_size = 14
+text = "Star Cell"
 
 [node name="HSeparator" type="HSeparator" parent="gui" unique_id=561172466]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_uxtqq")
 
 [node name="startGame" type="Label" parent="gui" unique_id=1348488451]
 layout_mode = 2
-text = "Start"
-
-[node name="options" type="Label" parent="gui" unique_id=984807984]
-layout_mode = 2
-text = "options"
-
-[node name="quit" type="Label" parent="gui" unique_id=584234828]
-layout_mode = 2
-text = "quit"
+theme_override_fonts/font = ExtResource("2_btmd0")
+theme_override_font_sizes/font_size = 14
+text = "Push space to start"
 
 [node name="PanelContainer" type="ColorRect" parent="." unique_id=1946542910]
 z_index = -12
@@ -36,18 +49,87 @@ offset_right = 224.0
 offset_bottom = 256.0
 color = Color(0, 0, 0, 1)
 
-[node name="SpaceParticles" type="CPUParticles2D" parent="PanelContainer" unique_id=935296141]
-amount = 20
-lifetime = 10.0
-randomness = 0.55
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PanelContainer" unique_id=1311712104]
+texture_filter = 1
+position = Vector2(0, -16)
+amount = 2
+texture = ExtResource("2_iul6a")
+lifetime = 4.0
 direction = Vector2(0, 1)
 spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
-initial_velocity_max = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_uxtqq")
+script = ExtResource("2_0yp4q")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="PanelContainer" unique_id=1172757332]
+texture_filter = 1
+position = Vector2(0, -16)
+amount = 2
+texture = ExtResource("4_imref")
+lifetime = 4.0
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_uxtqq")
+script = ExtResource("2_0yp4q")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="PanelContainer" unique_id=955599750]
+texture_filter = 1
+position = Vector2(0, -16)
+amount = 2
+texture = ExtResource("5_3s32a")
+lifetime = 4.0
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_uxtqq")
+script = ExtResource("2_0yp4q")
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="PanelContainer" unique_id=1934997617]
+texture_filter = 1
+position = Vector2(0, -16)
+amount = 2
+texture = ExtResource("6_btmd0")
+lifetime = 4.0
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_uxtqq")
+script = ExtResource("2_0yp4q")
+
+[node name="Dots" type="CPUParticles2D" parent="PanelContainer" unique_id=2057677807]
+texture_filter = 1
+position = Vector2(0, -16)
+amount = 10
+lifetime = 4.0
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_uxtqq")
 script = ExtResource("2_0yp4q")
 
 [node name="playerSprite" type="Sprite2D" parent="." unique_id=640436126]
 texture_filter = 1
 position = Vector2(111, 230)
-texture = ExtResource("1_sf2e2")
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_uxtqq")

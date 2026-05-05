@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e8hox")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 8.0
 }]
@@ -46,7 +46,6 @@ size = Vector2(1, 1)
 z_index = -1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_bvtwq")
-autoplay = "default"
 frame_progress = 0.23149668
 script = ExtResource("2_bkamy")
 

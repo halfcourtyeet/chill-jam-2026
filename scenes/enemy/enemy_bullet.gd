@@ -1,16 +1,16 @@
 class_name EnemyBullet extends AnimatedSprite2D
 
-const SPEED = 65
+var speed = randf_range(55,85)
 
 var _d: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	frame = randi_range(0,3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	global_position.y += SPEED * delta
+	global_position.y += speed * delta
 	if global_position.y > get_viewport_rect().size.y + 16:
 		queue_free()
 	_d = delta
@@ -29,7 +29,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func try_position(body: Node2D):
 	if body is PlayerTiles:
 		var collision = global_position - body.global_position
-		collision.y += (SPEED * _d)
+		collision.y += (speed * _d)
 		var rounded = round(collision)
 		var pos: Vector2i = body.local_to_map(rounded)
 
@@ -38,7 +38,7 @@ func try_position(body: Node2D):
 		print(pos)
 
 		if body.get_cell_tile_data(pos) != null:
+			queue_free()			
 			body.delete_tile(pos)
-			queue_free()
 			body.delete_bfs()
 				

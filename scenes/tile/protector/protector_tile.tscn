@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://cuuu12pdyhr2v"]
 
 [ext_resource type="Script" uid="uid://37b22hd5de36" path="res://scenes/tile/protector/protector_tile.gd" id="1_fu874"]
+[ext_resource type="AudioStream" uid="uid://bxqv18ejg6c7t" path="res://assets/audio/sounds/NEW sounds/aoetileprotect.wav" id="2_e62uf"]
+[ext_resource type="Texture2D" uid="uid://op3g1kyi7vp1" path="res://assets/sprites/circle.png" id="3_67uic"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q4mir"]
 radius = 12.0
+
+[sub_resource type="Curve" id="Curve_e62uf"]
+_data = [Vector2(0, 0), 0.0, 2.2020452, 0, 0, Vector2(0.4419145, 1), 2.437023, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_67uic"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="ProtectorTile" type="AnimatedSprite2D" unique_id=1406053006]
 script = ExtResource("1_fu874")
@@ -19,8 +28,24 @@ shape = SubResource("CircleShape2D_q4mir")
 disabled = true
 
 [node name="BulletStopActiveTimer" type="Timer" parent="." unique_id=1768572471]
-wait_time = 0.2
 one_shot = true
+
+[node name="ProtectSound" type="AudioStreamPlayer2D" parent="." unique_id=1344313260]
+stream = ExtResource("2_e62uf")
+volume_db = -5.0
+
+[node name="ShieldParticle" type="CPUParticles2D" parent="." unique_id=495211963]
+texture_filter = 1
+emitting = false
+amount = 1
+texture = ExtResource("3_67uic")
+one_shot = true
+local_coords = true
+gravity = Vector2(0, 0)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_e62uf")
+color_ramp = SubResource("Gradient_67uic")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="BulletStopActiveTimer" to="." method="_on_bullet_stop_active_timer_timeout"]

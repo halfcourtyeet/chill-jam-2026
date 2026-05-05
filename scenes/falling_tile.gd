@@ -29,12 +29,16 @@ func _physics_process(delta: float) -> void:
 	
 	_d = delta
 
+	if position.y > get_viewport_rect().size.y + 16:
+		queue_free()
+
 func _on_area_2d_body_entered(body: Node2D):
 	try_position(body)
 
 
 func _on_area_2d_area_entered(area: Area2D):
-	if area.owner is Player or area.owner is Bullet:
+	if area.owner is Player:
+		if body_attempting: return
 		
 		var dt: DeadTile = dead_tile.instantiate()
 		
@@ -42,8 +46,13 @@ func _on_area_2d_area_entered(area: Area2D):
 		dt.global_position = global_position
 		queue_free()
 
-		if area.owner is Bullet:
-			area.owner.queue_free()
+	if area.owner is Bullet:
+		var dt: DeadTile = dead_tile.instantiate()
+		
+		get_tree().root.add_child.call_deferred(dt)
+		dt.global_position = global_position
+		area.owner.queue_free()
+		queue_free()
 
 func try_position(body: Node2D):
 	if body is PlayerTiles:

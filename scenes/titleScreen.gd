@@ -12,14 +12,12 @@ var t := 0.0;
 
 @onready var mainGameScene = preload("res://scenes/main.tscn");
 
+func _ready() -> void:
+	for c in get_tree().root.get_children(true):
+		if c is EnemyBullet:
+			c.queue_free()
+
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("down"):
-		selection += 1;
-		optionSwitchCode();
-	if Input.is_action_just_pressed("up"):
-		selection -= 1;
-		optionSwitchCode();
-	selection = clamp(selection, 0, 2);
 
 	if Input.is_action_just_pressed("shoot"):
 		Global.playSound(selectionSound2);

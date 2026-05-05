@@ -11,21 +11,14 @@ region = Rect2(48, 72, 8, 8)
 atlas = ExtResource("1_chlba")
 region = Rect2(40, 72, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hv7v1"]
-atlas = ExtResource("1_chlba")
-region = Rect2(32, 72, 8, 8)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_88ecs"]
 animations = [{
 "frames": [{
-"duration": 1.25,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_5se1q")
 }, {
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_677tj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hv7v1")
 }],
 "loop": false,
 "name": &"default",
@@ -40,7 +33,7 @@ z_index = -1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_88ecs")
 autoplay = "default"
-frame = 2
+frame = 1
 frame_progress = 1.0
 script = ExtResource("2_5se1q")
 

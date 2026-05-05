@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dcm4koxh2m2pi"
+path="res://.godot/imported/shooterTileShooting.wav-e2eef519f814927f92b0205be40e6376.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/NEW sounds/shooterTileShooting.wav"
+dest_files=["res://.godot/imported/shooterTileShooting.wav-e2eef519f814927f92b0205be40e6376.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -3,6 +3,13 @@ class_name PlayerTiles extends TileMapLayer
 signal freeze_movement
 signal unfreeze_movement
 
+var forbidden_tiles: Array[Vector2i] = [
+	Vector2i(-1,-1),
+	Vector2i(0,-1),
+	Vector2i(-1,0),
+	Vector2i(0,0),
+]
+
 var perma_tiles: Array[Vector2i] = [
 	Vector2i(-2,-1),
 	Vector2i(1,-1),
@@ -41,9 +48,16 @@ func add_tile(pos: Vector2i, tile: Vector2i):
 		new_tile.set_script(scene)
 
 
-	add_child(new_tile)
+	add_child.call_deferred(new_tile)
 	new_tile.position = map_to_local(pos)
 	tile_dict.set(pos, new_tile)
+
+	if pos in forbidden_tiles:
+		delete_tile(pos)
+		return
+
+	$TileNoises.stream = load("res://assets/audio/sounds/NEW sounds/playerTileaddClick.wav")
+	$TileNoises.play()
 
 	if new_tile is BombTile:
 		new_tile.connect("explode", _on_bomb_explode.bind(pos))
@@ -61,12 +75,18 @@ func delete_tile(pos: Vector2i, wipe_glues: bool = false, even_permas: bool = fa
 		entity.play("broken")
 		if entity.lives > 0: return
 
-	if pos in perma_tiles and not even_permas: return
+	if pos in perma_tiles and not even_permas:
+		$TileNoises.stream = load("res://assets/audio/sounds/NEW sounds/anchortileTing.wav")
+		$TileNoises.play()
+		return
+
 
 	erase_cell(pos)
 	tile_dict.get(pos).queue_free()
 	tile_dict.erase(pos)
 
+	$TileNoises.stream = load("res://assets/audio/sounds/NEW sounds/player tile lost.wav")
+	$TileNoises.play()
 
 
 	
@@ -109,6 +129,7 @@ func get_neighbors(pos: Vector2i) -> Array[Vector2i]:
 
 
 func _on_bomb_explode(cell: Vector2i) -> void:
+	$BombNoises.play()
 	print(cell)
 	for i in range(-1, 2):
 		for j in range(-1, 2):
@@ -116,3 +137,7 @@ func _on_bomb_explode(cell: Vector2i) -> void:
 			delete_tile(this_tile, true)
 
 	delete_bfs()
+
+func get_num_tiles():
+	var num_tiles: int = get_used_cells().size() - 2
+	return num_tiles

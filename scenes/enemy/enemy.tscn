@@ -2,24 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bisv6864u0bre" path="res://scenes/enemy/enemy.gd" id="1_7k104"]
 [ext_resource type="Texture2D" uid="uid://drcwb8c3kcgan" path="res://assets/sprites/master.png" id="1_a3pup"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_40wdo"]
-atlas = ExtResource("1_a3pup")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3pup"]
-atlas = ExtResource("1_a3pup")
-region = Rect2(64, 0, 16, 16)
+[ext_resource type="AudioStream" uid="uid://c245lxhphbawi" path="res://assets/audio/sounds/NEW sounds/enemyShoot.wav" id="3_40wdo"]
+[ext_resource type="AudioStream" uid="uid://b3oaggyxptgc8" path="res://assets/audio/sounds/death2.wav" id="4_tjssy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjssy"]
 atlas = ExtResource("1_a3pup")
-region = Rect2(96, 0, 16, 16)
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl05p"]
+atlas = ExtResource("1_a3pup")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwlon"]
+atlas = ExtResource("1_a3pup")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cwlon"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_40wdo")
+"texture": SubResource("AtlasTexture_tjssy")
 }],
 "loop": false,
 "name": &"default",
@@ -27,7 +29,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a3pup")
+"texture": SubResource("AtlasTexture_gl05p")
 }],
 "loop": false,
 "name": &"left",
@@ -35,7 +37,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tjssy")
+"texture": SubResource("AtlasTexture_cwlon")
 }],
 "loop": true,
 "name": &"right",
@@ -58,6 +60,14 @@ shape = SubResource("RectangleShape2D_4gyqm")
 [node name="Timer" type="Timer" parent="." unique_id=1190881762]
 wait_time = 0.666
 autostart = true
+
+[node name="ShootNoise" type="AudioStreamPlayer2D" parent="." unique_id=1804097160]
+stream = ExtResource("3_40wdo")
+
+[node name="DeathNoise" type="AudioStreamPlayer2D" parent="." unique_id=732685764]
+stream = ExtResource("4_tjssy")
+volume_db = -2.0
+pitch_scale = 1.5
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

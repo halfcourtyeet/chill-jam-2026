@@ -11,6 +11,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity += Vector2(0, 9.8)
 	move_and_slide()
+	
+	if position.y > get_viewport_rect().size.y + 16:
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

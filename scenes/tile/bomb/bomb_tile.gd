@@ -6,4 +6,6 @@ func splode():
     explode.emit()
 
 func beep():
-    $AnimationPlayer.play("default")
+    stop()
+    play("default")
+    $BombNoises.play()

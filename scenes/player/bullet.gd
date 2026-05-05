@@ -1,6 +1,6 @@
 class_name Bullet extends Sprite2D
 
-const SPEED = 200
+const SPEED = 175
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,10 +9,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	global_position.y -= SPEED * delta
-	if global_position.y < 0 + (texture.get_size().y / 2):
-		queue_free()
 
 func _on_area_2d_area_entered(area: Area2D):
 	if area.owner is Enemy:
 		area.owner.die()
 		queue_free();
+
+
+func _on_death_timer_timeout() -> void:
+	queue_free()

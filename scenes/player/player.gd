@@ -99,10 +99,13 @@ func die():
 		get_tree().root.add_child(explosion_particle)
 		explosion_particle.global_position = global_position
 		explosion_particle.emitting = true
-		$AudioStreamPlayer2D.stream = load("res://assets/audio/sounds/death3.wav")
-		$AudioStreamPlayer2D.play()
+		$PlayerNoises.stream = load("res://assets/audio/sounds/death3.wav")
+		$PlayerNoises.play()
+
+		$PlayerTiles.collision_enabled = false
 
 		await get_tree().create_timer(1.5).timeout
+		$PlayerTiles.collision_enabled = true
 		if Global.lives > 0:
 			global_position = Vector2(224/2, 230);
 			dead = false;

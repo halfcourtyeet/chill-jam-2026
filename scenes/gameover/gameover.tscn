@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjt2f2784vk68"]
 
 [ext_resource type="Script" uid="uid://ccadu6xfrk77p" path="res://scenes/gameover/gameover.gd" id="1_u2e70"]
+[ext_resource type="FontFile" uid="uid://ce7p1v00ofrxd" path="res://Short_Story.ttf" id="2_al6oj"]
 
 [node name="gameover" type="Control" unique_id=179726608]
 layout_mode = 3
@@ -28,15 +29,21 @@ alignment = 1
 
 [node name="title" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1184017362]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_al6oj")
+theme_override_font_sizes/font_size = 7
 text = "Game over :("
 horizontal_alignment = 1
 
 [node name="score" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1627451274]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_al6oj")
+theme_override_font_sizes/font_size = 7
 text = "Score: 9999"
 horizontal_alignment = 1
 
 [node name="instructions" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=2074391421]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_al6oj")
+theme_override_font_sizes/font_size = 7
 text = "Shoot to go back to menu"
 horizontal_alignment = 1

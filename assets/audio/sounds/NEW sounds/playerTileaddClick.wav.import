@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://diwilbw08ebmp"
+path="res://.godot/imported/playerTileaddClick.wav-1aeb7616c3050a88775dd2dbac6df24e.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/NEW sounds/playerTileaddClick.wav"
+dest_files=["res://.godot/imported/playerTileaddClick.wav-1aeb7616c3050a88775dd2dbac6df24e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

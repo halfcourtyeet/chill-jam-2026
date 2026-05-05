@@ -8,3 +8,4 @@ func _on_timer_timeout():
     get_tree().root.add_child(b)
     b.global_position = global_position
     play("shoot")
+    $ShootNoise.play()

@@ -1,6 +1,6 @@
 class_name TileBullet extends AnimatedSprite2D
 
-const SPEED = 200
+const SPEED = 150
 
 @onready var lifetime_timer: Timer = $LifetimeTimer
 
